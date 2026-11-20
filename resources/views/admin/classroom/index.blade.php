@@ -1,13 +1,15 @@
 <x-admin.layout>
     <section class="p-3 sm:p-5">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+            @if (session('success'))<div class="mb-4 rounded-lg bg-green-100 p-4 text-sm text-green-800">{{ session('success') }}</div>@endif
+            @if (session('error'))<div class="mb-4 rounded-lg bg-red-100 p-4 text-sm text-red-800" role="alert">{{ session('error') }}</div>@endif
             <!-- Header halaman -->
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Classroom</h1>
                     <p class="text-sm text-gray-500 dark:text-gray-400">Kelola data kelas</p>
                 </div>
-                <button type="button"
+                <a href="{{ route('admin.classrooms.create') }}"
                     class="inline-flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     <svg class="w-4 h-4 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +18,7 @@
                             clip-rule="evenodd" />
                     </svg>
                     Tambah Kelas
-                </button>
+                </a>
             </div>
 
             <!-- Tabel -->
@@ -51,7 +53,6 @@
                                 <th scope="col" class="py-3 px-6">NO</th>
                                 <th scope="col" class="py-3 px-6">NAME</th>
                                 <th scope="col" class="py-3 px-6">MAJOR</th>
-                                <th scope="col" class="py-3 px-6 text-center">ACTION</th>
                                 <th scope="col" class="py-3 px-6 text-center">Students list</th>
                             </tr>
                         </thead>
@@ -80,15 +81,10 @@
                                         @endforelse
                                     </td>
 
-                                     <td class="py-4 px-6 text-center space-x-2">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                        <a href="#" class="font-medium text-red-600 hover:underline">Delete</a>
-                                    </td>
-
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="py-6 text-center">
+                                    <td colspan="4" class="py-6 text-center">
                                         Data classroom belum tersedia.
                                     </td>
                                 </tr>

@@ -11,9 +11,9 @@ class TeacherFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'niy' => fake()->numberBetween(1000, 9999),
+            'niy' => fake()->unique()->numerify('#####'),
             'subjects_id' => Subject::factory(),
-            'start_date' => fake()->date(),
+            'start_date' => fake()->dateTimeBetween('-1 years', 'now')->format('Y-m-d'),
         ];
     }
 }

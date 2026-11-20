@@ -1,8 +1,11 @@
 @php
-    $isActive = request()->is(ltrim($href, '/'));
+    $hrefPath = parse_url($href, PHP_URL_PATH) ?: '/';
+    $activePath = trim($hrefPath, '/');
+    $isActive = request()->is($activePath, $activePath . '/*');
 @endphp
 <li>
     <a href="{{ $href }}"
+       @if ($isActive) aria-current="page" @endif
        @class([
            'flex items-center p-2 text-base font-medium rounded-lg group',
            'bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-white' => $isActive,

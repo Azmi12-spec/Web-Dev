@@ -11,13 +11,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="antialiased bg-gray-50 dark:bg-gray-900">
+    <div class="antialiased min-h-screen bg-gray-50 dark:bg-gray-900">
     <x-admin.navbar/>
     <x-admin.sidebar/>
 
 
     <main class="p-4 md:ml-64 h-auto pt-20">
-        <div class="mx-auto max-w 7 xl px-4 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 lg:px-8">
             {{ $slot }}
         </div>
     </main>

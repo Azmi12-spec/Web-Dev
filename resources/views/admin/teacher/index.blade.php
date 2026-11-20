@@ -1,6 +1,8 @@
 <x-admin.layout>
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        @if (session('success'))<div class="mb-4 rounded-lg bg-green-100 p-4 text-sm text-green-800">{{ session('success') }}</div>@endif
+        <div class="mb-4 flex justify-end"><a href="{{ route('admin.teachers.create') }}" class="rounded-lg bg-blue-600 px-4 py-2 text-white">+ Add Teacher</a></div>
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
@@ -37,7 +39,6 @@
                             <th scope="col" class="py-3 px-6">NIY</th>
                             <th scope="col" class="py-3 px-6">SUBJECTS</th>
                             <th scope="col" class="py-3 px-6">START DATE</th>
-                            <th scope="col" class="py-3 px-6 text-center">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,10 +58,6 @@
                                 </td>
                                 <td class="py-4 px-6">
                                     {{ $teacher->start_date }}
-                                </td>
-                                <td class="py-4 px-6 text-center space-x-2">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

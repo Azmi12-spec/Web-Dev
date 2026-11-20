@@ -15,6 +15,6 @@ class Subject extends Model
 
     public function teachers()
     {
-        return $this->hasMany(Teacher::class, 'subjects_id');
+        return $this->hasMany(Teacher::class, 'subjects_id');//subject has many techer // teacheers belong
     }
 }

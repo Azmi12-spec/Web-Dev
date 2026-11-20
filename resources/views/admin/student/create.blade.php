@@ -2,7 +2,7 @@
     <button id="defaultModalButton"
         data-modal-target="defaultModal"
         data-modal-toggle="defaultModal"
-        class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        class="inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button">
         Create Siswa
     </button>
@@ -60,7 +60,7 @@
                         <input type="text"
                             name="name"
                             id="name"
-                            value="old"
+                            value="{{ old('name') }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="Masukkan nama siswa"
                             required>
@@ -75,6 +75,7 @@
                         <input type="text"
                             name="nis"
                             id="nis"
+                            value="{{ old('nis') }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="Masukkan NIS"
                             required>
@@ -93,7 +94,7 @@
 
                             <option value="">Select Classroom</option>
 
-                            @foreach ($classroom_id as $classroom)
+                            @foreach ($classrooms as $classroom)
                                 <option value="{{ $classroom->id }}"
                                     {{ old('classroom_id') == $classroom->id ? 'selected' : '' }}
                                 >
@@ -127,8 +128,8 @@
                 </div>
 
                 <button type="submit"
-                    class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    <svg class="mr-1 -ml-1 w-6 h-6"
+                    class="inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg class="mr-2 h-5 w-5"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">

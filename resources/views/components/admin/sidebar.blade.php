@@ -43,10 +43,10 @@
 
             {{-- <x-admin.menu-item href="/admin/students" label="Students"
                 icon='<path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"></path>' /> --}}
-            <x-admin.menu-item href="/admin/students" label="Student"
+            <x-admin.menu-item href="{{ route('admin.students.index') }}" label="Student"
                 icon='
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>' />
-            <x-admin.menu-item href="/admin/classrooms" label="Classroom"
+            <x-admin.menu-item href="{{ route('admin.classrooms.index') }}" label="Classroom"
                 icon='<path d="M3 4h14v12H3z"></path><path d="M7 8h6M7 12h6M5 20h10"></path>' />
 
             <x-admin.menu-item href="/admin/teachers" label="Teacher"

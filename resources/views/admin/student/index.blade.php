@@ -7,6 +7,11 @@
                     {{ session('success') }}
                 </div>
             @endif
+            @if (session('error'))
+                <div class="mb-4 rounded-lg bg-red-100 p-4 text-sm text-red-800" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
 
             <!-- Header halaman -->
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
@@ -134,7 +139,6 @@
                                 <th scope="col" class="py-3 px-6">NIS</th>
                                 <th scope="col" class="py-3 px-6">CLASS</th>
                                 <th scope="col" class="py-3 px-6">ADDRESS</th>
-                                <th scope="col" class="py-3 px-6 text-center">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -146,14 +150,8 @@
                                         {{ $student->name }}
                                     </td>
                                     <td class="py-4 px-6">{{ $student->nis }}</td>
-                                    <td class="py-4 px-6">{{ $student->classroom->name }}</td>
+                                    <td class="py-4 px-6">{{ $student->classroom?->name }}</td>
                                     <td class="py-4 px-6">{{ $student->address }}</td>
-                                    <td class="py-4 px-6 text-center space-x-2">
-                                        <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -217,5 +215,5 @@
             </div>
         </div>
     </section>
-    @include('student.create')
+    @include('admin.student.create')
 </x-admin.layout>

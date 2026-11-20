@@ -16,7 +16,7 @@ class StudentController extends Controller
         $students = Student::all();
         $classrooms = Classroom::all();
 
-        return view('admin.index', [
+        return view('admin.student.index', [
             'title' => 'Student',
             'students' => $students,
             'classrooms' => $classrooms,
@@ -28,7 +28,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return redirect()->route('admin.students.index');
+        return view('admin.student.create', ['classrooms' => Classroom::all()]);
     }
 
     /**
@@ -40,7 +40,7 @@ class StudentController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'nis' => 'required|string|max:10|unique:students,nis',
-            'classroom_id' => 'required|exists:classroom,id',
+            'classroom_id' => 'required|exists:classrooms,id',
             'address' => 'required|string|max:65535',
         ]);
 
@@ -57,27 +57,4 @@ class StudentController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
